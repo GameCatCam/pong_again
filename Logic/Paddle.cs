@@ -3,7 +3,7 @@ using System;
 
 public partial class Paddle : Area2D
 {
-    private const int MoveSpeed = 100;
+    private const int MoveSpeed = 200;
 
     // All three of these change for each paddle.
     private int _ballDir;
@@ -30,6 +30,8 @@ public partial class Paddle : Area2D
 
     public void OnAreaEntered(Area2D area)
     {
+        GD.Print("Paddle script is running");
+
         if (area is Ball ball)
         {
             // Assign new direction

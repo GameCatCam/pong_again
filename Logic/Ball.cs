@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Ball : Area2D
 {
-    private const int DefaultSpeed = 100;
+    private const int DefaultSpeed = 150;
 
     public Vector2 direction = Vector2.Left;
 
@@ -16,7 +16,7 @@ public partial class Ball : Area2D
 
     public override void _Process(double delta)
     {
-        _speed += delta * 2;
+        _speed += delta * 8;
         Position += (float)(_speed * delta) * direction;
     }
 
