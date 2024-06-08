@@ -30,8 +30,6 @@ public partial class Paddle : Area2D
 
     public void OnAreaEntered(Area2D area)
     {
-        GD.Print("Paddle script is running");
-
         if (area is Ball ball)
         {
             // Assign new direction
