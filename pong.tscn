@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bufr8nynnqrj"]
+[gd_scene load_steps=13 format=3 uid="uid://bufr8nynnqrj"]
 
 [ext_resource type="Script" path="res://Logic/Paddle.cs" id="1"]
 [ext_resource type="Texture2D" uid="uid://cgbjbhglgxf0k" path="res://paddle.png" id="2"]
 [ext_resource type="Script" path="res://Logic/Ball.cs" id="4"]
 [ext_resource type="Texture2D" uid="uid://13ht46tyr4ae" path="res://ball.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://cim6es185kfto" path="res://separator.png" id="6"]
+[ext_resource type="Script" path="res://Logic/Score.cs" id="6_x8idy"]
 [ext_resource type="Script" path="res://Logic/Wall.cs" id="7"]
 [ext_resource type="Script" path="res://Logic/CeilingFloor.cs" id="8"]
 
@@ -61,14 +62,50 @@ texture = ExtResource("5")
 shape = SubResource("2")
 
 [node name="Separator" type="Sprite2D" parent="."]
-position = Vector2(320, 200)
+position = Vector2(320, 211)
+scale = Vector2(1, 0.945)
 texture = ExtResource("6")
+
+[node name="Scoreboard Label" type="Label" parent="."]
+offset_left = 276.0
+offset_top = 3.0
+offset_right = 365.0
+offset_bottom = 26.0
+text = "Scoreboard"
+
+[node name="Scoreboard" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 276.0
+offset_top = 3.0
+offset_right = 365.0
+offset_bottom = 26.0
+script = ExtResource("6_x8idy")
+
+[node name="Score_Left" type="Label" parent="Scoreboard"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 20.0
+offset_right = 39.0
+offset_bottom = 43.0
+text = "0"
+horizontal_alignment = 1
+
+[node name="Score_Right" type="Label" parent="Scoreboard"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 43.0
+text = "0"
+horizontal_alignment = 1
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="LeftWall" type="Area2D" parent="."]
 position = Vector2(-5, 200)
 script = ExtResource("7")
+scoreNodePath = NodePath("../Scoreboard")
 
 [node name="Collision" type="CollisionShape2D" parent="LeftWall"]
 position = Vector2(0, 0.5)
@@ -77,6 +114,7 @@ shape = SubResource("3")
 [node name="RightWall" type="Area2D" parent="."]
 position = Vector2(645, 200)
 script = ExtResource("7")
+scoreNodePath = NodePath("../Scoreboard")
 
 [node name="Collision" type="CollisionShape2D" parent="RightWall"]
 shape = SubResource("3")

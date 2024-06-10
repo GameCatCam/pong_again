@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Score : Area2D
+public partial class Score : Control
 {
     // References to the score labels
     private Label scoreLeftLabel;
