@@ -24,6 +24,7 @@ public partial class Paddle : Area2D
     {
         // Move up and down based on input.
         float input = Input.GetActionStrength(_down) - Input.GetActionStrength(_up);
+        //If slow key is actively being pressed, slow the speed of the corresponding paddle by half.
         if (Input.GetActionStrength(_slow) > 0){
             Vector2 position = Position; // Required so that we can modify position.y.
             position += new Vector2(0, input * (MoveSpeed/2) * (float)delta);

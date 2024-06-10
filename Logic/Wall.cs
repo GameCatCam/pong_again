@@ -18,13 +18,13 @@ public partial class Wall : Area2D
             if (Name == "LeftWall")
             {
                 score.IncreaseScoreRight();
-                // Ball went off the side of the screen, reset it.
+                // Ball went off the side of the screen, reset it. Right scored so right serves the ball.
                 ball.Reset("Right");
             }
             else if (Name == "RightWall")
             {
                 score.IncreaseScoreLeft();
-                // Ball went off the side of the screen, reset it.
+                // Ball went off the side of the screen, reset it. Left scored so left serves the ball.
                 ball.Reset("Left");
             }
 
