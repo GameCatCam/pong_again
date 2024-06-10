@@ -6,11 +6,10 @@ public partial class Score : Control
     private Label scoreLeftLabel;
     private Label scoreRightLabel;
     // Exports gameScenePath for direction by Godot, gameScene variable is for use in _Ready
-    [Export]
-    public NodePath gameScenePath;
-
+    [Export] public NodePath gameScenePath;
+    //object to use to select the game scene
     private GameScene gameScene;
-
+  
     // Scores for left and right players
     private int scoreLeft = 0;
     private int scoreRight = 0;
@@ -25,17 +24,18 @@ public partial class Score : Control
         // Update the initial score display
         UpdateScoreLabels();
 
-        //sets the gameScene variable using the path set by Godot
+        //sets the gameScene variable using the path set by Godot, same with victoryScene
         gameScene = GetNode<GameScene>(gameScenePath);
     }
 
     public override void _Process(double delta)
     {
+        //ends the game if either score is greater than 4 (the score hits 5), passes the name of the winner
         if (scoreLeft > 4) {
-            gameScene.EndGame();
+            gameScene.EndGame("Left player"); 
         }
         if (scoreRight > 4) {
-            gameScene.EndGame();
+            gameScene.EndGame("Right player");
         }
     }
 

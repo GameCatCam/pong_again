@@ -1,11 +1,37 @@
-[gd_scene format=3 uid="uid://gvld6lb5wc60"]
+[gd_scene load_steps=5 format=3 uid="uid://gvld6lb5wc60"]
+
+[ext_resource type="Script" path="res://Logic/VictoryScene.cs" id="1_2kfx7"]
+[ext_resource type="Script" path="res://Logic/GlobalData.cs" id="1_cgmub"]
+
+[sub_resource type="SystemFont" id="SystemFont_c0gps"]
+font_names = PackedStringArray("Comic Sans MS")
+font_weight = 999
+font_stretch = 200
+hinting = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_3qxcf"]
+font = SubResource("SystemFont_c0gps")
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Winner" type="Label" parent="."]
+[node name="GlobalData" type="Node" parent="."]
+script = ExtResource("1_cgmub")
+
+[node name="Title Winner Text" type="Label" parent="."]
 offset_left = 240.0
 offset_top = 128.0
 offset_right = 400.0
 offset_bottom = 204.0
 text = "Winner:"
+horizontal_alignment = 1
+script = ExtResource("1_2kfx7")
+
+[node name="Winner Label" type="Label" parent="Title Winner Text"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 143.0
+offset_bottom = 88.0
+text = "No player wins!"
+label_settings = SubResource("LabelSettings_3qxcf")
 horizontal_alignment = 1

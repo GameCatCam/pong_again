@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bufr8nynnqrj"]
+[gd_scene load_steps=15 format=3 uid="uid://bufr8nynnqrj"]
 
 [ext_resource type="Script" path="res://Logic/Paddle.cs" id="1"]
 [ext_resource type="Script" path="res://Logic/GameScene.cs" id="1_mrv5a"]
 [ext_resource type="Texture2D" uid="uid://cgbjbhglgxf0k" path="res://paddle.png" id="2"]
+[ext_resource type="Script" path="res://Logic/GlobalData.cs" id="2_u3o4p"]
 [ext_resource type="Script" path="res://Logic/Ball.cs" id="4"]
 [ext_resource type="Texture2D" uid="uid://13ht46tyr4ae" path="res://ball.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://cim6es185kfto" path="res://separator.png" id="6"]
@@ -24,6 +25,9 @@ size = Vector2(640, 10)
 
 [node name="Pong" type="Node2D"]
 script = ExtResource("1_mrv5a")
+
+[node name="GlobalData" type="Node" parent="."]
+script = ExtResource("2_u3o4p")
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 640.0
